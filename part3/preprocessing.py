@@ -43,3 +43,17 @@ def createNewFile(f): #f=input file name
     nf=open(name,'w')
     nf.write(sal(rsw(clean(f))))
     nf.close()
+
+# read in files for cleaning    
+def readManifest(manifest):
+    # read from in tfidf_docs.txt
+    # this file is a manifest of the documents used in the following code
+    for line in open(manifest, 'r'):
+        file = line.strip('\n')
+        createNewFile(file)
+              
+# Main method
+def main():
+    readManifest("tfidf_docs.txt")
+
+main()
